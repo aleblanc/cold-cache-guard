@@ -19,9 +19,16 @@ Original prompt: let's continue with the migration
 
 ## The problem
 
-You come back to a large Claude Code session after lunch, or resume yesterday's session, and type
-"let's continue". That single message eats **12 % of the session quota**: it was one turn on an
-845k-token context after a long pause.
+A real case. A Claude Code session (Fable model, ~845k tokens of context) is left open in the
+evening, around 16:15. The next morning at 07:37, the first prompt sent in that session is a trivial
+one: "suggest a commit message". That single prompt moves the 5-hour session quota from **0 % to
+12 %**, plus 3-4 % of the weekly quotas, for an estimated **$5.44**.
+
+![Usage graphs: the session quota jumps from 0 % to 12 % after a single prompt at 07:38, sent in a session idle since the previous afternoon](docs/images/cold-resume-usage-spike.png)
+
+The prompt was only a few words long. The cost came from the context: after a night of inactivity
+the prompt cache had expired, so the whole 845k-token history was processed again at cache-write
+price.
 
 Claude Code sends the whole conversation history on every turn. The prompt cache normally makes this
 cheap, but only while the cache is warm:
