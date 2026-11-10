@@ -1,0 +1,19 @@
+{
+  "description": "Hold the first prompt sent on a cold prompt cache when the context is large; record activity after each response.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/guard.sh gate", "timeout": 10 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/guard.sh log", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}

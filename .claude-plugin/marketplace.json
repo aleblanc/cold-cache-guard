@@ -1,0 +1,17 @@
+{
+  "name": "cold-cache-guard",
+  "description": "Marketplace for the cold-cache-guard Claude Code plugin.",
+  "owner": {
+    "name": "aleblanc",
+    "url": "https://github.com/aleblanc"
+  },
+  "plugins": [
+    {
+      "name": "cold-cache-guard",
+      "source": "./",
+      "description": "Warns before a cold-cache prompt reprocesses your whole Claude Code context and drains your usage limits.",
+      "category": "productivity",
+      "tags": ["prompt-caching", "token-usage", "usage-limits", "hooks"]
+    }
+  ]
+}

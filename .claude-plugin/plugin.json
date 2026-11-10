@@ -1,0 +1,21 @@
+{
+  "name": "cold-cache-guard",
+  "version": "0.1.0",
+  "description": "Warns before a cold-cache prompt reprocesses your whole Claude Code context and drains your usage limits.",
+  "author": {
+    "name": "aleblanc",
+    "url": "https://github.com/aleblanc"
+  },
+  "homepage": "https://github.com/aleblanc/cold-cache-guard",
+  "repository": "https://github.com/aleblanc/cold-cache-guard",
+  "license": "MIT",
+  "keywords": [
+    "prompt-caching",
+    "cache",
+    "token-usage",
+    "usage-limits",
+    "context-window",
+    "cost-optimization",
+    "hooks"
+  ]
+}

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install bats and shellcheck (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y bats shellcheck jq
+
+      - name: Install bats and shellcheck (macOS)
+        if: runner.os == 'macOS'
+        run: brew install bats-core shellcheck jq
+
+      - name: Script is executable in git
+        run: test "$(git ls-files -s hooks/guard.sh | cut -c1-6)" = "100755"
+
+      - name: Lint
+        run: shellcheck hooks/guard.sh
+
+      - name: Manifests are valid JSON
+        run: |
+          jq empty .claude-plugin/plugin.json
+          jq empty .claude-plugin/marketplace.json
+          jq empty hooks/hooks.json
+
+      - name: Tests
+        run: bats tests/
