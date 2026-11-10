@@ -6,6 +6,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-10
+
 ### Changed
 
 - The warning says to press Enter again to confirm: Claude Code puts the held prompt back in the
@@ -30,5 +32,6 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Fail-open behavior: any error lets the prompt through.
 - bats test suite and CI on Linux and macOS.
 
-[Unreleased]: https://github.com/aleblanc/cold-cache-guard/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/aleblanc/cold-cache-guard/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/aleblanc/cold-cache-guard/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/aleblanc/cold-cache-guard/releases/tag/v0.1.0

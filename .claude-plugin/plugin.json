@@ -1,6 +1,6 @@
 {
   "name": "cold-cache-guard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Warns before a cold-cache prompt reprocesses your whole Claude Code context and drains your usage limits.",
   "author": {
     "name": "aleblanc",
