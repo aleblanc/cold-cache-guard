@@ -5,17 +5,9 @@ Cold Cache Guard is a Claude Code plugin that saves your tokens and usage limits
 [![CI](https://github.com/aleblanc/cold-cache-guard/actions/workflows/ci.yml/badge.svg)](https://github.com/aleblanc/cold-cache-guard/actions/workflows/ci.yml)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
-```text
-UserPromptSubmit operation blocked by hook:
-cold-cache-guard: prompt held, the prompt cache has most likely expired.
-  Idle for 2 h 52 min (cache TTL ~1h), context ~845k tokens.
-  Sending now re-reads the whole context at cache-write price (~20x a warm turn).
-  - Re-send your prompt within 120s to send it anyway (its text is repeated below).
-  - /clear or a new session is the cheap option if you can drop this context.
-  - /compact also reads the context once, but makes the following turns cheaper.
+![Claude Code holding a prompt: cold-cache-guard warns that the session has been idle and the context is ~213k tokens, and the prompt is back in the input](docs/images/prompt-held-warning.png)
 
-Original prompt: let's continue with the migration
-```
+The prompt is not lost: Claude Code puts it back in the input, so pressing Enter again sends it.
 
 ## The problem
 
@@ -73,8 +65,8 @@ runs before anything is sent to the API.
 When a prompt is held:
 
 - nothing is sent to Claude and nothing is billed;
-- the warning is shown to you, and Claude Code repeats your prompt below it;
-- re-sending a prompt within 2 minutes confirms it and lets it through;
+- the warning is shown to you, and Claude Code puts your prompt back in the input;
+- pressing Enter again within 2 minutes confirms it and lets it through;
 - `/compact` and `/clear` are never held.
 
 Where the data comes from:

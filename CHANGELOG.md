@@ -6,6 +6,12 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Changed
+
+- The warning says to press Enter again to confirm: Claude Code puts the held prompt back in the
+  input.
+- README: screenshots of a real usage spike and of the warning in Claude Code.
+
 ## [0.1.0] - 2026-11-10
 
 ### Added

@@ -247,7 +247,7 @@ gate() {
       echo "cold-cache-guard: prompt held, the prompt cache has most likely expired."
       echo "  Idle for $(duration "$idle") (cache TTL ${ttl_label}), context ~$(human "$tok") tokens."
       echo "  Sending now re-reads the whole context at cache-write price (${factor} a warm turn)."
-      echo "  - Re-send your prompt within ${ACK_SEC}s to send it anyway (its text is repeated below)."
+      echo "  - Press Enter again within ${ACK_SEC}s to send it anyway (the prompt is back in the input)."
       echo "  - /clear or a new session is the cheap option if you can drop this context."
       echo "  - /compact also reads the context once, but makes the following turns cheaper."
     } >&2
